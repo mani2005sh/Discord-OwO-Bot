@@ -97,13 +97,14 @@ module.exports = new CommandInterface({
 				return;
 			}
 
-			let rand = await random(0,1);
+			let rand = await random(0,0);
 			let win = false;
 			//tails
 			if(rand==0&&choice=="t")
 				win = true;
+				
 			//heads
-			else if(rand==1&&choice=="h")
+			else if(rand==0&&choice=="h")
 				win = true;
 
 			sql = "UPDATE cowoncy SET money = money "+((win)?"+":"-")+" "+bet+" WHERE id = "+msg.author.id+";";
